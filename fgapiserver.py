@@ -25,7 +25,10 @@ from flask import request
 from flask_login import LoginManager
 from flask_login import login_required
 from flask_login import current_user
-from werkzeug import secure_filename
+try:
+    from werkzeug import secure_filename
+except ImportError:
+    from werkzeug.utils import secure_filename
 from fgapiserver_config import fg_config
 from fgapiserver_db import fgapisrv_db
 from fgapiserverptv import FGAPIServerPTV
